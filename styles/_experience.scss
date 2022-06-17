@@ -1,0 +1,78 @@
+.experience {
+  @include flex-col;
+  gap: 2em;
+
+  background: white;
+  width: fit-content;
+  max-width: 100%;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+  .container {
+    @include flex-row;
+    gap: 2em;
+
+    .experience-card {
+      @include flex-row;
+      gap: 1em;
+      .image {
+        span {
+          width: 5em;
+          height: 5em;
+          background: blueviolet;
+          border-radius: 100%;
+          display: block;
+
+          img {
+            width: 100%;
+            border-radius: 100%;
+          }
+        }
+      }
+      .time {
+        color : gray;
+        font-weight: 400;
+        font-style: 1em;
+      }
+      .name {
+        font-weight: 600;
+        margin: 0.5em 0;
+      }
+      article {
+        margin-top: 2em;
+        width: fit-content;
+        max-width: 18ch;
+        font-size: 1.1em;
+      }
+    }
+
+    @include size-down(tablet) {
+      @include flex-col;
+      .experience-card {
+        .image {
+          span {
+            width: 3em;
+            height: 3em;
+          }
+        }
+        article {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
+  @include size-down(tablet) {
+    padding: 1em;
+  }
+}
+.experience.vertical {
+  .container {
+    @include flex-col;
+  }
+}

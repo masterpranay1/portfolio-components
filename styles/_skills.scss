@@ -1,0 +1,77 @@
+.skills_meter {
+  width: fit-content;
+  background: var(--clr-sec);
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 255, .2);
+
+  @include size-down(tablet) {
+    padding: 1em;
+  }
+}
+
+.skills_meter h2 {
+  font-size: 1.4em;
+  font-weight: 500;
+}
+
+.skills_meter main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1em;
+  column-gap: 3em;
+  margin-top: 1em;
+
+  .skill {
+    @include flex-row;
+    align-items: center;
+
+    --width: 50%;
+    span {
+      font-weight: 500;
+      color: gray;
+      width: 10ch;
+    }
+    .meter {
+      width: 10em;
+      height: 10px;
+      border-radius: 5px;
+      background: #C4C4C4;
+      position: relative;
+
+    }
+    .meter:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--clr-ter);
+      border-radius: 5px;
+      width: var(--width);
+    }
+  }
+}
+
+@include size-down(tablet) {
+  .skills_meter {
+    width: 100%;
+  }
+  .skills_meter main {
+    grid-template-columns: repeat(1, 1fr);
+    .skill {
+      span {
+        max-width: 12ch;
+      }
+      .meter {
+        width: 50%;
+      }
+    }
+  }
+}
+
+.skills_meter.vertical main {
+  grid-template-columns: repeat(1, 1fr);
+}

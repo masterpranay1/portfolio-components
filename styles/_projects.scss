@@ -1,0 +1,133 @@
+.projects {
+  width: fit-content;
+
+  @include flex-col;
+  gap: 2em;
+}
+
+.projects header {
+  width: 100%;
+
+  background: var(--clr-sec);
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+
+  --fs: 1.2em;
+
+  h2 {
+    font-style: calc(var(--fs) + 0.2em);
+    font-weight: 500;
+  }
+
+  .filters {
+    @include flex-row;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 1em;
+
+    button {
+      @include button;
+      border-color: black;
+      color: black;
+
+      &.fill {
+        border-color: var(--clr-ter);
+      }
+    }
+  }
+}
+
+.projects-container {
+  @include flex-row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.project-card {
+  @include flex-col;
+  gap: 1em;
+
+  padding: 1.5em;
+  width: 30%;
+
+  background: var(--clr-sec);
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+
+  --fs: 1.2em;
+
+  figure {
+    width: 100%;
+    img {
+      width: 100%;
+      min-width: 10em;
+    }
+  }
+
+  .project-detail {
+    @include flex-col;
+    gap: 1em;
+    p.tags {
+      font-size: var(--fs);
+    }
+    h3 {
+      font-size: calc(var(--fs) + 0.2em);
+      font-weight: 500;
+    }
+    article {
+      color: gray;
+    }
+    .button-wrapper {
+      @include flex-row;
+      gap: 1em;
+      button {
+        @include button;
+        padding: 0.5em 9%;
+        margin-top: 1em;
+      }
+    }
+  }
+
+  @include size-down(tablet) {
+    width: 100%;
+  }
+}
+
+.projects.horizontal .projects-container {
+  @include flex-col;
+  width: fit-content;
+
+  .project-card {
+    @include flex-row;
+    width: fit-content;
+    
+    --fs: 1.2em;
+
+    figure {
+      width: 35%;
+      width: 20em;
+    }
+
+    .project-detail {
+      width: 50%;
+      p.tags {
+        margin-top: auto;
+      }
+      article {
+        max-width: 40ch;
+      }
+    }
+
+    @include size-down(tablet) {
+      @include flex-col;
+      figure {
+        width: 100%;
+      }
+      .project-detail {
+        width: 100%;
+      }
+    }
+  }
+}
